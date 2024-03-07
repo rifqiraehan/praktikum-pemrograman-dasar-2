@@ -15,7 +15,7 @@ int main()
     cout << "Value before change" << endl;
     for (int i = 0; i < 5; i++)
     {
-        cout << "vals[" << i << " ] = ";
+        cout << "vals[" << i << "] = ";
         cout << vals[i] << endl;
     }
     setValues(1) = 20.23; // change 2nd element

@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
+
 const int MAX = 4;
+
 int main()
 {
     // adding const before char for read-only memory
