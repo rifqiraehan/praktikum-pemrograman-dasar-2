@@ -96,8 +96,6 @@ int main(){
 
     start = clock();
 
-    // do something
-
     puts("Created Linked List: ");
     printList(head);
 
@@ -119,7 +117,10 @@ int main(){
     printList(head);
 
     duration = (clock() - start) / (double) CLOCKS_PER_SEC;
-    cout << "\n\nDuration: " << duration << " seconds" << endl;
+
+    double duration_ms = duration * 1000;
+
+    cout << "\n\nDuration: " << duration << " seconds = " << duration_ms << " milliseconds" << endl;
 
     return 0;
 }
