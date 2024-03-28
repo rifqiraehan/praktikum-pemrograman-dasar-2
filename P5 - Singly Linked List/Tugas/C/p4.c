@@ -78,7 +78,7 @@ int main(){
     push(&head, 3);
     push(&head, 2);
 
-    push(&head, 8);
+    push(&head, 5);
     push(&head, 9);
     insertAfter(head->next, 10);
     append(&head, 11);
@@ -87,13 +87,21 @@ int main(){
     puts("Created Linked List: ");
     printList(head);
 
-    deleteNode(&head, 1);
+    deleteNode(&head, 4);
 
-    deleteNode(&head, 8);
-    deleteNode(&head, 10);
-    deleteNode(&head, 12);
-    
-    puts("\nLinked List after Deletion of 1: ");
+    puts("\nLinked List after Deletion at position 4: ");
+    printList(head);
+
+    deleteNode(&head, 3);
+    puts("\nLinked List after Deletion at position 3: ");
+    printList(head);
+
+    deleteNode(&head, 2);
+    puts("\nLinked List after Deletion at position 2: ");
+    printList(head);
+
+    deleteNode(&head, 1);
+    puts("\nLinked List after Deletion at position 1: ");
     printList(head);
 
     return 0;
