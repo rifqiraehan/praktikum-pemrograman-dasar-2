@@ -68,7 +68,7 @@ int main(){
     insertAfter(head->next, 13);
     insertAfter(head->next, 14);
 
-    printf("\nCreated Linked list is: ");
+    printf("Created Linked list is: \n");
     printList(head);
 
     return 0;

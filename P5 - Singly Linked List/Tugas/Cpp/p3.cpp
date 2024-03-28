@@ -71,7 +71,7 @@ int main(){
     insertAfter(head->next, 13);
     insertAfter(head->next, 14);
 
-    cout << "Created Linked list is: ";
+    cout << "Created Linked list is: \n";
     printList(head);
 
     return 0;
