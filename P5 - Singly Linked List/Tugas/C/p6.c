@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node{
+    int data;
+    struct Node *next;
+};
+
+void push (struct Node **head_ref, int new_data){
+    struct Node *new_node = (struct Node *)malloc(sizeof(struct Node));
+    new_node->data = new_data;
+    new_node->next = *head_ref;
+    *head_ref = new_node;
+}
+
+int getCount(struct Node *head){
+    if (head == NULL){
+        return 0;
+    }
+
+    return 1 + getCount(head->next);
+}
+
+int deleteNode(struct Node **head_ref){
+    struct Node *temp = *head_ref;
+    *head_ref = temp->next;
+    free(temp);
+    return 0;
+}
+
+int main(){
+    struct Node *head = NULL;
+
+    push(&head, 1);
+    push(&head, 3);
+    push(&head, 1);
+    push(&head, 2);
+    push(&head, 1);
+
+    printf("Count of nodes is %d\n", getCount(head));
+
+    deleteNode(&head);
+    deleteNode(&head);
+
+    printf("Count of nodes is %d\n", getCount(head));
+
+    return 0;
+}
