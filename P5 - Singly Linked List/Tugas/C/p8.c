@@ -23,7 +23,6 @@ int GetNth(struct Node *head, int n){
         return head->data;
     }
 
-
     return GetNth(head->next, n - 1);
 }
 

@@ -28,7 +28,7 @@ int GetNth(Node* head, int index){
         current = current->next;
     }
 
-    assert(0);
+    return 0;
 }
 
 int main(){
