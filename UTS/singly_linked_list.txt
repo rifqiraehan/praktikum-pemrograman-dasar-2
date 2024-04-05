@@ -1,0 +1,99 @@
+
+Sebuah singly linked list memiliki kondisi awal berikut:
+A(7.1) -> B(2.3 ) -> C(5.6) -> D(8.0) -> E(4.9) -> F(5.5) -> NULL
+
+Jika anda ingin menambahkan/menyisipkan node baru (G)
+sebelum node A, maka :
+a. Tuliskan cara menginisialisasi nodenya menggunakan bahasa C++?
+    class Node{
+    public:
+        int data;
+        Node* next;
+    };
+
+    void push(Node** head_ref, float new_data){
+        Node* new_node = new Node();
+        new_node->data = new_data;
+        new_node->next = (*head_ref);
+        (*head_ref) = new_node;
+    }
+
+    int main(){
+        Node* head = NULL;
+
+        push(&head, 5.5);
+        push(&head, 4.9);
+        push(&head, 8.0);
+        push(&head, 5.6);
+        push(&head, 2.3);
+        push(&head, 7.1);
+        push(&head, 6.0);
+
+        return 0;
+    }
+
+b. Node manakah yang dimaksud dengan prev_node?
+Dalam kasus ini, prev_node merujuk ke node NULL. Hal ini karena node G disisipkan sebelum node A, yang merupakan node pertama (head) pada linked list. Node pertama tidak memiliki node sebelumnya, sehingga prev_node adalah nullptr.
+
+c. Node manakah yang dimaksud dengan prev_node -> next sebelum penyisipan
+node G?
+Sebelum penyisipan node G, prev_node -> next akan merujuk ke node A.
+
+d. Node manakah yang dimaksud dengan prev_node -> next setelah penyisipan
+node G?
+Node yang dimaksud dengan prev_node -> next setelah penyisipan node G adalah node G itu sendiri.
+
+e. Node manakah yang dimaksud dengan new_node?
+new_node merujuk ke node G.
+
+f. Node manakah yang dimaksud dengan new-node -> next?
+node A.
+
+Jika anda ingin menghapus node B, maka :
+a. Tuliskan cara menginisialisasi nodenya?
+...
+void deleteNode(struct Node** head_ref, int position){
+    if (*head_ref == NULL)
+        return;
+
+    struct Node* temp = *head_ref;
+        if (position == 0){
+            *head_ref = temp->next;
+            free(temp);
+            return;
+        }
+
+    for (int i=0; temp!=NULL && i<position-1; i++)
+        temp = temp->next;
+        if (temp == NULL || temp->next == NULL)
+            return;
+
+    struct Node *next = temp->next->next;
+    free(temp->next);
+    temp->next = next;
+}
+...
+int main(){
+    Node* head = NULL;
+
+    ...
+    deleteNode(&head, 4);
+}
+
+b. Node manakah yang dimaksud dengan prev_node?
+prev_node merujuk ke node A
+
+c. Node manakah yang dimaksud dengan prev_node -> next sebelum
+penghapusan node B?
+Node yang dimaksud dengan prev_node -> next sebelum penghapusan node B adalah node B.
+
+d. Node manakah yang dimaksud dengan prev_node -> next setelah
+penghapusan node B?
+Setelah penghapusan node B, prev_node -> next akan merujuk ke node C
+
+e. Node manakah yang dimaksud dengan temp setelah penghapusan node B?
+Setelah penghapusan node B, temp akan menunjuk ke node C.
+
+f. Node manakah yang dimaksud dengan temp -> next setelah penghapusan node
+B?
+Setelah penghapusan node B, temp -> next akan menunjuk ke node setelah node C, yaitu node D.
