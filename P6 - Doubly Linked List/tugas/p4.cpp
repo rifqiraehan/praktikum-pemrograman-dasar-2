@@ -51,6 +51,7 @@ void quickSort(Node *head){
     _quickSort(head, h);
 }
 
+// menambahkan fungsi partitionDesc()
 Node *partitionDesc(Node *l, Node *h){
     int x = h->data;
     Node *i = l->prev;
@@ -67,6 +68,7 @@ Node *partitionDesc(Node *l, Node *h){
     return i;
 }
 
+// menambahkan fungsi _quickSortDesc()
 void _quickSortDesc(Node *l, Node *h){
     if(h != NULL && l != h && l != h->next){
         Node *p = partitionDesc(l, h);
@@ -75,6 +77,7 @@ void _quickSortDesc(Node *l, Node *h){
     }
 }
 
+// menambahkan fungsi quickSortDesc()
 void quickSortDesc(Node *head){
     Node *h = lastNode(head);
     _quickSortDesc(head, h);
@@ -114,12 +117,14 @@ int main(){
 
     quickSort(a);
 
-    cout << "Linked List after sorting in ascending : ";
+    cout << "Linked List after sorting in ascendant : ";
     printList(a);
 
+    // proses sorting descending
     quickSortDesc(a);
 
-    cout << "Linked List after sorting in descending: ";
+    // menampilkan hasil sorting descending
+    cout << "Linked List after sorting in descendant: ";
     printList(a);
 
     return 0;

@@ -70,13 +70,33 @@ void printList(struct Node* node) {
         last = node;
         node = node->next;
     }
+    printf("\n");
 
     printf("\nTraversal in reverse direction\n");
     while (last != NULL) {
         printf(" %d ", last->data);
         last = last->prev;
     }
+    printf("\n");
+}
 
+// menambahkan fungsi untuk mencetak alamat memori dari setiap node
+void printMemoryAddress(struct Node* node) {
+    struct Node* last;
+    printf("\nTraversal of memory address in forward direction\n");
+    while (node != NULL) {
+        printf(" %p ", node);
+        last = node;
+        node = node->next;
+    }
+    printf("\n");
+
+    printf("\nTraversal of memory address in reverse direction\n");
+    while (last != NULL) {
+        printf(" %p ", last);
+        last = last->prev;
+    }
+    printf("\n");
 }
 
 int main(){
@@ -88,15 +108,17 @@ int main(){
     append(&head, 4);
     insertAfter(head->next, 8);
 
+    // menambahkan node baru
     insertAfter(head->next->next, 10);
+    insertAfter(head->next->next->next, 11);
     append(&head, 12);
     push(&head, 15);
-
 
     printf("Created DLL is: ");
     printList(head);
 
-    getchar();
+    // menampilkan alamat memori dari setiap node
+    printMemoryAddress(head);
 
     return 0;
 }
