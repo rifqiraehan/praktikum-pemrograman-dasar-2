@@ -5,7 +5,7 @@ using namespace std;
 class Line
 {
     public:
-    double getLength(void);
+    int getLength(void);
     Line(int len);
     Line(const Line &obj);
     ~Line();
@@ -34,7 +34,7 @@ Line::~Line(void)
     delete ptr;
 }
 
-double Line::getLength(void)
+int Line::getLength(void)
 {
     return *ptr;
 }
